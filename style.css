@@ -40,14 +40,15 @@ button{
     align-items: center;
     justify-content: center;
     gap: 16px;
-    padding: 16px 0;
+    padding: 32px 0;
 }
 .main-menu__ineer{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 16px;
-    padding: 16px 0;
+    /* bag padding: 16px 0; */
+    /* padding: 16px 0;  */
 }
 
 .main-menu__logo{
@@ -115,9 +116,9 @@ button{
 
 /* todo  только для webkit */
 /* bag увеличивает размер блока */
-/* .services-menu__items::-webkit-scrollbar{
+.services-menu__items::-webkit-scrollbar{
     width: 0;
-} */
+}
 
 .services-menu__items::after{
     content: '';
@@ -147,6 +148,7 @@ button{
 .services-menu__item > button:focus{
     outline: 2px solid #B8FFEC;
 }
+
 .reviews{
     margin-left: 24px;
     display: none;
@@ -192,6 +194,12 @@ button{
 
     width: max-content;
 }
+/* bag */
+.reviews:focus{
+    outline: 2px solid #B8FFEC;
+    outline-offset: 8px;
+    border-radius: 1px;
+}
 .services-about__button-text{
     color: #1B1C21;
     font-family: TT Lakes;
@@ -204,6 +212,9 @@ button{
 /*sec медиа запросы */
 
 @media screen and (min-width: 320px) and (max-width:767px){
+    .mid-text{
+        display: none;
+    }
     .services-about{
         flex-direction: column;
     }
@@ -211,6 +222,7 @@ button{
         height: 90px;
         overflow: hidden;
     }
+
     #main-menu__dividing-lin-1, .main-menu__call-button,
     .main-menu__chat-button, .main-menu__profile-button{
         display: none;
@@ -221,6 +233,12 @@ button{
     }
 }
 @media screen and (min-width:768px){
+    .mid-text{
+        display: block;
+    }
+    .max-text{
+        display: none;
+    }
     .services{
         padding: 24px 24px 0 24px;
         display: flex;
@@ -257,6 +275,9 @@ button{
     }
 }
 @media screen and (min-width:1120px){
+    .max-text{
+        display: inline;
+    }
     .header{
         display: none;
     }
@@ -275,7 +296,7 @@ button{
     .reviews{
         display: block;
         margin-top: 14px;
-        margin-bottom: 18px;
+        margin-bottom: 26px;
     }
     .services-about__inner{
         gap: 12px;
