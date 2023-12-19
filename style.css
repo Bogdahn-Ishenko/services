@@ -19,6 +19,7 @@ h1,h2,h3,h4,h5,h6{
 button{
     cursor: pointer;
 }
+
 a{
     font-family: TT Lakes;
     text-decoration: none;
@@ -34,13 +35,20 @@ button{
 .header{
     background-color: #fff;
 }
+.header::after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: #D9FFF5;
+}
 .main-menu{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    padding: 32px 0;
+   padding: 18px 16px 18px 16px;
 }
 .main-menu__ineer{
     display: flex;
@@ -51,9 +59,10 @@ button{
     /* padding: 16px 0;  */
 }
 
-.main-menu__logo{
-    width: max-content;
-    height: max-content;
+.logo .main-menu__logo, a img{
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 .main-menu__dividing-line{
     width: 2px;
@@ -70,7 +79,7 @@ button{
     flex-direction: column;
 }
 .services__header{
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -136,7 +145,7 @@ button{
 .services-menu__button{
     padding: 6px 16px;
     border-radius: 6px;
-
+    /* border: 1px solid #000; */
     color: #7E7E82;
     font-family: TT Lakes;
     font-size: 16px;
@@ -146,8 +155,10 @@ button{
     letter-spacing: -0.2px;
 }
 .services-menu__item > button:focus{
+    background-color: #fff;
     outline: 2px solid #B8FFEC;
 }
+
 
 .reviews{
     margin-left: 24px;
@@ -210,8 +221,26 @@ button{
     letter-spacing: -0.2px;
 }
 /*sec медиа запросы */
+@media screen and (max-width: 319px){
+    body::before{
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        position:fixed;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://images.unsplash.com/photo-1700864208310-0849428c612f?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        background-position: center;
+        background-size: cover;
+        z-index: +1;
+    }
 
+}
 @media screen and (min-width: 320px) and (max-width:767px){
+    .main-menu{
+        justify-content: space-between;
+    }
     .mid-text{
         display: none;
     }
@@ -232,7 +261,7 @@ button{
         margin: 0 -16px 0 -16px;
     }
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) and (max-width:1119px){
     .mid-text{
         display: block;
     }
@@ -247,7 +276,7 @@ button{
     }
     .main-menu{
         justify-content: space-between;
-        padding: 0 24px;
+        padding: 18px 24px;
     }
     #main-menu__dividing-lin-1, .main-menu__call-button,
     .main-menu__chat-button, .main-menu__profile-button{
@@ -275,6 +304,9 @@ button{
     }
 }
 @media screen and (min-width:1120px){
+    .services-menu__items{
+        flex-wrap: wrap;
+    }
     .max-text{
         display: inline;
     }
@@ -284,11 +316,11 @@ button{
     .services{
         padding: 42px 32px 0 32px;
         display: flex;
-        gap: 0;
+        gap: 14px;
     }
     .services__header{
         display: flex;
-        margin-bottom: 9px;
+        /* margin-bottom: 9px; */
     }
     .services__main-menu{
         display: flex;
